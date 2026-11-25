@@ -1,0 +1,13 @@
+PatchTST
+Source: https://github.com/yuqinie98/PatchTST
+Upstream licence: Apache-2.0, copied in LICENSES/PatchTST_Apache-2.0.txt.
+
+RevIN
+Source: https://github.com/ts-kim/RevIN
+Upstream licence: MIT, copied in LICENSES/RevIN_MIT.txt.
+
+The included model and layer sources are copied unchanged from the local
+research implementation, including its multi-scale and channel-attention
+extensions. Empty package initializers isolate the selected dependencies.
+This notice preserves upstream attribution and does not assign a new blanket
+licence to the authors' original additions or the sample data.

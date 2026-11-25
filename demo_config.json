@@ -1,0 +1,78 @@
+{
+  "seed": 2026,
+  "input_features": [
+    "tension_endA_std_kN",
+    "tension_mid_std_kN",
+    "tension_endB_std_kN",
+    "vibration_mid_mean_mm_s",
+    "vibration_mid_std_mm_s",
+    "deflection_mid_mean_mm",
+    "deflection_mid_std_mm",
+    "temperature_C",
+    "humidity_percent",
+    "wind_speed_m_s",
+    "wind_x",
+    "wind_y",
+    "tension_mid_mean_kN"
+  ],
+  "target": "tension_mid_mean_kN",
+  "sampling_interval_minutes": 10,
+  "sample_rows": 576,
+  "sample_origin": "Four-day excerpt of the original synthetic benchmark",
+  "input_normalization": "Historical input-window mean and population SD; illustrative demo preprocessing",
+  "weights": "Random initialization, no trained checkpoint included",
+  "common_model_args": {
+    "enc_in": 13,
+    "e_layers": 3,
+    "n_heads": 8,
+    "d_model": 128,
+    "d_ff": 256,
+    "dropout": 0.05,
+    "fc_dropout": 0.05,
+    "head_dropout": 0.0,
+    "individual": 0,
+    "patch_len": 16,
+    "stride": 8,
+    "padding_patch": "end",
+    "revin": 1,
+    "affine": 0,
+    "subtract_last": 0,
+    "decomposition": 0,
+    "kernel_size": 25
+  },
+  "models": {
+    "PatchTST": {},
+    "MyPatchTST": {
+      "n_heads_channel": 1,
+      "use_fault_class_head": false,
+      "use_channel_attention": true,
+      "use_multi_scale": true,
+      "fast_patch_len": 8,
+      "fast_stride": 4,
+      "medium_patch_len": 16,
+      "medium_stride": 8,
+      "slow_patch_len": 32,
+      "slow_stride": 16,
+      "use_group_channel_attention": false,
+      "use_global_channel_attention": true,
+      "use_trend_residual_head": false,
+      "use_inertia_residual_head": true,
+      "multi_scale_layout": "pvcable",
+      "group_permutation_seed": 2026
+    }
+  },
+  "cases": {
+    "6": {
+      "seq_len": 144,
+      "pred_len": 36
+    },
+    "12": {
+      "seq_len": 216,
+      "pred_len": 72
+    },
+    "24": {
+      "seq_len": 432,
+      "pred_len": 144
+    }
+  }
+}

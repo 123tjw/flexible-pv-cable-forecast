@@ -1,0 +1,4 @@
+# Reference environment: Python 3.9, PyTorch 2.0.1.
+# No data generation or training dependency is needed by the demonstration.
+numpy==1.24.3
+torch==2.0.1
